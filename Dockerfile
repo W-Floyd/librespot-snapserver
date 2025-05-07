@@ -9,8 +9,11 @@ RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community --
 RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache librespot=${LIBRESPOT_VERSION}
 RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache snapweb
 
-COPY run.sh /
-CMD ["/run.sh"]
+COPY root/ /
 
-ENV DEVICE_NAME=Snapcast
 EXPOSE 1704/tcp 1705/tcp
+
+VOLUME /data
+VOLUME /config
+
+ENV HOME="/config"

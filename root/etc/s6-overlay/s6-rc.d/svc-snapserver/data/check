@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -f /config/snapserver.conf ]]; then
+    PORT="$(grep -Eo '^port = [0-9]+' </config/snapserver.conf)"
+fi
+
+if [[ $(curl -sL "http://localhost:${PORT:-1780} -o /dev/null" --write-out "%{http_code}") = "200" ]]; then
+    exit 0
+else
+    exit 1
+fi

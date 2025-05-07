@@ -1,5 +1,5 @@
-#!/bin/bash
-set -xeuo pipefail
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # Change snapserver source to Spotify only if no custom configuration is mounted
 if ! [ -e '/config/snapserver.conf' ]; then
@@ -19,4 +19,13 @@ if ! [ -e '/config/snapserver.conf' ]; then
   sed -i "s,^doc_root = .*,doc_root = /usr/share/snapweb," /config/snapserver.conf
 fi
 
-exec snapserver -c /config/snapserver.conf
+if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
+    lsiown -R abc:abc \
+        /config
+
+    if grep -qe ' /data ' /proc/mounts; then
+        if [[ "$(stat -c '%U' /data)" != "abc" ]]; then
+            lsiown abc:abc /data
+        fi
+    fi
+fi

@@ -2,11 +2,12 @@ FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
 ARG LIBRESPOT_VERSION=0.6.0-r0
 ARG SNAPCAST_VERSION=0.31.0-r0
+ARG SNAPWEB_VERSION=0.7.0-r0
 
 RUN apk add --no-cache bash sed
-RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache snapcast=${SNAPCAST_VERSION} sed
-RUN apk add bash sed
-RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache librespot=${LIBRESPOT_VERSION} sed
+RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache snapcast=${SNAPCAST_VERSION}
+RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache librespot=${LIBRESPOT_VERSION}
+RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache snapweb
 
 COPY run.sh /
 CMD ["/run.sh"]

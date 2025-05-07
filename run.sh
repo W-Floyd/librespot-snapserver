@@ -16,6 +16,7 @@ if ! [ -e '/config/snapserver.conf' ]; then
     credentials="\&cache=${CACHE}"
   fi
   sed -i "s,^source = .*,source = librespot:///librespot?name=Spotify\&devicename=${DEVICE_NAME:-Snapcast}\&bitrate=320\&volume=100${credentials}," /config/snapserver.conf
+  sed -i "s,^doc_root = .*,doc_root = /usr/share/snapweb," /config/snapserver.conf
 fi
 
 exec snapserver -c /config/snapserver.conf

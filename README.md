@@ -34,7 +34,7 @@ It might be necessary to get a credentials file instead of using username and pa
 If you want to configure the snapcast server differently, you can mount your own `snapserver.conf` into the container:
 
 ```bash
-docker run -d --name snapserver --net host -v /path/to/your/snapserver.conf:/etc/snapserver.conf:ro mazzolino/librespot-snapserver
+docker run -d --name snapserver --net host -v /path/to/your/snapserver.conf:/config/snapserver.conf:ro mazzolino/librespot-snapserver
 ```
 
 NOTE: The configuration file needs to be mounted *read-only* for this to work.

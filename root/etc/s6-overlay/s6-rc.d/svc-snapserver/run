@@ -3,10 +3,10 @@
 
 if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
     exec \
-        s6-notifyoncheck -d -n 300 -w 1000 \
+        s6-notifyoncheck -d -n 15 -w 1000 \
         s6-setuidgid abc snapserver -c /config/snapserver.conf
 else
     exec \
-        s6-notifyoncheck -d -n 300 -w 1000 \
+        s6-notifyoncheck -d -n 15 -w 1000 \
         snapserver -c /config/snapserver.conf
 fi

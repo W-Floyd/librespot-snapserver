@@ -10,11 +10,11 @@ _Note: You need a Spotify premium account._
 
 Run it like this (on your PC or ARM-based device):
 
-    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast mazzolino/librespot-snapserver
+    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast ghcr.io/w-floyd/librespot-snapserver
 
 That will make the device available to all Spotify clients in your network. Add your Spotify credentials in order to limit control to clients logged in with your account:
 
-    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast -e USERNAME=my-spotify-username -e PASSWORD=my-spotify-password mazzolino/librespot-snapserver
+    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast -e USERNAME=my-spotify-username -e PASSWORD=my-spotify-password ghcr.io/w-floyd/librespot-snapserver
 
 Now you can connect your snapclient to your host's ip. The receiver should show up in Spotify under the `DEVICE_NAME` given above (e.g. `Snapcast`). Have fun playing music!
 
@@ -26,7 +26,7 @@ It might be necessary to get a credentials file instead of using username and pa
 2. Mount it into your container and use the `CACHE` option, like this:
 
     ```bash
-    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast -e CACHE=/data -v /path/to/credentials.json:/data/credentials.json mazzolino/librespot-snapserver
+    docker run -d --name snapserver --net host -e DEVICE_NAME=Snapcast -e CACHE=/data -v /path/to/credentials.json:/data/credentials.json ghcr.io/w-floyd/librespot-snapserver
     ```
 
 ### Custom configuration
@@ -34,7 +34,7 @@ It might be necessary to get a credentials file instead of using username and pa
 If you want to configure the snapcast server differently, you can mount your own `snapserver.conf` into the container:
 
 ```bash
-docker run -d --name snapserver --net host -v /path/to/your/snapserver.conf:/config/snapserver.conf:ro mazzolino/librespot-snapserver
+docker run -d --name snapserver --net host -v /path/to/your/snapserver.conf:/config/snapserver.conf:ro ghcr.io/w-floyd/librespot-snapserver
 ```
 
 NOTE: The configuration file needs to be mounted *read-only* for this to work.

@@ -14,7 +14,7 @@ RUN curl "https://codeload.github.com/photovoltex/librespot/zip/${LIBRESPOT_COMM
 FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
 # ARG LIBRESPOT_VERSION=0.7.1-r0
-ARG SNAPCAST_VERSION=0.32.3-r0
+ARG SNAPCAST_VERSION=0.34.0-r0
 ARG SNAPWEB_VERSION=0.9.2-r0
 
 RUN apk add --no-cache bash sed

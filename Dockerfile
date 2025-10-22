@@ -1,6 +1,6 @@
 FROM ghcr.io/linuxserver/baseimage-alpine:edge AS librespot
 
-ARG LIBRESPOT_COMMIT=0d4e56789aecb8a5f6752742bfc62e021c6ad864
+ARG LIBRESPOT_COMMIT=2735e7608d879eb685e6453fdadc9f5aa1846011
 
 RUN apk add --no-cache alsa-lib-dev cargo curl alpine-sdk git coreutils cargo-auditable openssl-dev
 RUN curl "https://codeload.github.com/photovoltex/librespot/zip/${LIBRESPOT_COMMIT}" -o 'librespot.zip' && \

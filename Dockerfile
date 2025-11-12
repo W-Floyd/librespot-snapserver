@@ -22,7 +22,7 @@ RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no
 RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community --no-cache snapcast=${SNAPCAST_VERSION}
 RUN apk add --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing --no-cache snapweb=${SNAPWEB_VERSION}
 
-COPY --from=0 /usr/bin/librespot /usr/bin/librespot
+# COPY --from=0 /usr/bin/librespot /usr/bin/librespot
 
 COPY root/ /
 

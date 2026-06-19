@@ -15,7 +15,7 @@
 FROM ghcr.io/linuxserver/baseimage-alpine:edge AS snapweb
 
 ARG SNAPWEB_REPO=W-Floyd/snapweb
-ARG SNAPWEB_COMMIT=89af4d0dc99ddae24f71bb445a23b893333abede
+ARG SNAPWEB_COMMIT=55c3896d10f2e060e49535c75ee24d87db1166eb
 RUN apk add --no-cache npm vips-dev
 RUN curl "https://codeload.github.com/${SNAPWEB_REPO}/zip/${SNAPWEB_COMMIT}" -o 'snapweb.zip' && \
     unzip -qq 'snapweb.zip' -d 'snapweb' && \

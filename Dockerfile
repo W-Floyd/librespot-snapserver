@@ -30,7 +30,7 @@ RUN curl "https://codeload.github.com/${SNAPWEB_REPO}/zip/${SNAPWEB_COMMIT}" -o 
 FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
 ARG LIBRESPOT_VERSION=0.8.0-r0
-ARG SNAPCAST_VERSION=0.35.0-r0
+ARG SNAPCAST_VERSION=0.35.0-r1
 ARG SNAPWEB_VERSION=0.9.2-r1
 
 RUN apk add --no-cache bash sed
